@@ -122,13 +122,17 @@
 
 <p><img src="https://static.furmen.cn/images/datatype03.jpg" alt="图片"></p>
 <p>当然，引用类型就不再具有<code>不可变性</code>了，我们可以轻易的改变它们：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">obj1.<span class="property">name</span> = <span class="string">&quot;furmen&quot;</span>;</span><br><span class="line">obj2.<span class="property">age</span> = <span class="number">19</span>;</span><br><span class="line">obj4.<span class="property">length</span> = <span class="number">0</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj1); <span class="comment">//&#123;name:&quot;furmen6&quot;&#125;</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj2); <span class="comment">// &#123;age:19&#125;</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj4); <span class="comment">// []</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">obj1.<span class="property">name</span> = <span class="string">&quot;furmen&quot;</span>;</span><br><span class="line">obj2.<span class="property">age</span> = <span class="number">19</span>;</span><br><span class="line">obj4.<span class="property">length</span> = <span class="number">0</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj1); <span class="comment">//&#123;name:&quot;furmen&quot;&#125;</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj2); <span class="comment">// &#123;age:19&#125;</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj4); <span class="comment">// []</span></span><br></pre></td></tr></table></figure>
 
 <p>以数组为例，它的很多方法都可以改变它自身。</p>
 <ul>
-<li><code>pop()</code> 删除数组最后一个元素，如果数组为空，则不改变数组，返回undefined，改变原数组，返回被删除的元素</li>
+<li><code>pop()</code> 删除数组最后一个元素，如果数组不为空，改变原数组，返回被删除的元素。<pre><code>    如果数组为空则不改变数组，返回undefined
+</code></pre>
+</li>
 <li><code>push()</code>向数组末尾添加一个或多个元素，改变原数组，返回新数组的长度</li>
-<li><code>shift()</code>把数组的第一个元素删除，若空数组，不进行任何操作，返回undefined,改变原数组，返回第一个元素的值</li>
+<li><code>shift()</code>把数组的第一个元素删除，如果数组不为空，改变原数组，返回第一个元素的值。<pre><code>    如果数组为空则不进行任何操作，返回undefined
+</code></pre>
+</li>
 <li><code>unshift()</code>向数组的开头添加一个或多个元素，改变原数组，返回新数组的长度</li>
 <li><code>reverse()</code>颠倒数组中元素的顺序，改变原数组，返回该数组</li>
 <li><code>sort()</code>对数组元素进行排序，改变原数组，返回该数组</li>
@@ -177,7 +181,7 @@
 <p>表示“缺少值”，即此处应有一个值，但还没有定义，</p>
 <p>如果一个对象的某个属性值为<code>undefined</code>，这是不正常的，如<code>obj.name=undefined</code>，我们不应该这样写，应该直接<code>delete obj.name</code>。</p>
 <p><code>undefined</code>转为数值时为<code>NaN</code>(非数字值的特殊值)</p>
-<p><code>JavaScript</code>是一门动态类型语言，成员除了表示存在的空值外，还有可能根本就不存在（因为存不存在只在运行期才知道），这就是<code>undefined</code>的意义所在。对于<code>JAVA</code>这种强类型语言，如果有<code>&quot;undefined&quot;</code>这种情况，就会直接编译失败，所以在它不需要一个这样的类型。</p>
+<p><code>JavaScript</code>是一门动态类型语言，成员除了表示存在的空值外，还有可能根本就不存在（因为存不存在只在运行期才知道），这就是<code>undefined</code>的意义所在。对于<code>JAVA</code>这种强类型语言，如果有<code>&quot;undefined&quot;</code>这种情况，就会直接编译失败，所以它不需要一个这样的类型。</p>
 <h1 id="四、不太熟的Symbol类型"><a href="#四、不太熟的Symbol类型" class="headerlink" title="四、不太熟的Symbol类型"></a>四、不太熟的Symbol类型</h1><p><code>Symbol</code>类型是<code>ES6</code>中新加入的一种原始类型。</p>
 <blockquote>
 <p>每个从Symbol()返回的symbol值都是唯一的。一个symbol值能作为对象属性的标识符；这是该数据类型仅有的目的。</p>
@@ -203,7 +207,7 @@
 <blockquote>
 <p>可以调用Object.getOwnPropertySymbols()用于专门获取Symbol属性。</p>
 </blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">  <span class="attr">name</span>:<span class="string">&#x27;furmen&#x27;</span>,</span><br><span class="line">  [<span class="title class_">Symbol</span>(<span class="string">&#x27;name2&#x27;</span>)]:<span class="string">&#x27;code秘密花园&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="title class_">Object</span>.<span class="title function_">getOwnPropertyNames</span>(obj); <span class="comment">// [&quot;name&quot;]</span></span><br><span class="line"><span class="title class_">Object</span>.<span class="title function_">keys</span>(obj); <span class="comment">// [&quot;name&quot;]</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i <span class="keyword">in</span> obj) &#123;</span><br><span class="line">   <span class="variable language_">console</span>.<span class="title function_">log</span>(i); <span class="comment">// name</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="title class_">Object</span>.<span class="title function_">getOwnPropertySymbols</span>(obj) <span class="comment">// [Symbol(name)]</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">  <span class="attr">name</span>:<span class="string">&#x27;furmen&#x27;</span>,</span><br><span class="line">  [<span class="title class_">Symbol</span>(<span class="string">&#x27;name2&#x27;</span>)]:<span class="string">&#x27;code&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="title class_">Object</span>.<span class="title function_">getOwnPropertyNames</span>(obj); <span class="comment">// [&quot;name&quot;]</span></span><br><span class="line"><span class="title class_">Object</span>.<span class="title function_">keys</span>(obj); <span class="comment">// [&quot;name&quot;]</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i <span class="keyword">in</span> obj) &#123;</span><br><span class="line">   <span class="variable language_">console</span>.<span class="title function_">log</span>(i); <span class="comment">// name</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="title class_">Object</span>.<span class="title function_">getOwnPropertySymbols</span>(obj) <span class="comment">// [Symbol(name)]</span></span><br></pre></td></tr></table></figure>
 
 <h2 id="4-2-Symbol的应用场景"><a href="#4-2-Symbol的应用场景" class="headerlink" title="4.2 Symbol的应用场景"></a>4.2 Symbol的应用场景</h2><p>下面是几个<code>Symbol</code>在程序中的应用场景。</p>
 <p><strong>应用一：防止XSS</strong></p>
@@ -256,10 +260,10 @@
 <li><p>为什么 0.1的二进制 + 0.2的二进制 != 0.3的二进制？</p>
 </li>
 </ul>
-<h2 id="5-3-js对二进制小数的存储方式"><a href="#5-3-js对二进制小数的存储方式" class="headerlink" title="5.3 js对二进制小数的存储方式"></a>5.3 js对二进制小数的存储方式</h2><p>小数的<code>二进制</code>大多数都是无限循环的，<code>JavaScript</code>是怎么来存储他们的呢？</p>
+<h2 id="5-3-js对二进制小数的存储方式"><a href="#5-3-js对二进制小数的存储方式" class="headerlink" title="5.3 js对二进制小数的存储方式"></a>5.3 js对二进制小数的存储方式</h2><p>小数的<code>二进制</code>大多数都是无限循环的，<code>JavaScript</code>是怎么来存储它们的呢？</p>
 <p>在<a target="_blank" rel="noopener" href="https://262.ecma-international.org/5.1/#sec-4.3.19">ECMAScript®语言规范</a>中可以看到，<code>ECMAScript</code>中的<code>Number</code>类型遵循<code>IEEE 754</code>标准。使用64位固定长度来表示。</p>
-<p>事实上有很多语言的数字类型都遵循这个标准，例如<code>JAVA</code>,所以很多语言同样有着上面同样的问题。</p>
-<p>所以下次遇到这种问题不要上来就喷<code>JavaScript</code>…</p>
+<p>事实上有很多语言的数字类型都遵循这个标准，例如<code>JAVA</code>，所以很多语言同样有着上面同样的问题。</p>
+<p>所以下次遇到这种问题不要上来就喷<code>JavaScript</code></p>
 <p>有兴趣可以看看下这个网站<a target="_blank" rel="noopener" href="https://0.30000000000000004.com/">0.30000000000000004.com/</a></p>
 <h2 id="5-4-js中的toString-2"><a href="#5-4-js中的toString-2" class="headerlink" title="5.4 js中的toString(2)"></a>5.4 js中的toString(2)</h2><p>由于尾数位只能存储<code>52</code>个数字，这就能解释<code>toString(2)</code>的执行结果了：</p>
 <p>如果计算机没有存储空间的限制，那么<code>0.1</code>的<code>二进制</code>应该是：</p>
@@ -273,7 +277,7 @@
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">0.0001100110011001100110011001100110011001100110011001101</span></span><br></pre></td></tr></table></figure>
 
 <p><code>0.2</code>有着同样的问题，其实正是由于这样的存储，在这里有了精度丢失，导致了<code>0.1+0.2!=0.3</code>。</p>
-<p>事实上有着同样精度问题的计算还有很多，我们无法把他们都记下来，所以当程序中有数字计算时，我们最好用工具库来帮助我们解决，下面是两个推荐使用的开源库：</p>
+<p>事实上有着同样精度问题的计算还有很多，我们无法把它们都记下来，所以当程序中有数字计算时，我们最好用工具库来帮助我们解决，下面是两个推荐使用的开源库：</p>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://github.com/nefe/number-precision">number-precision</a></li>
 <li><a target="_blank" rel="noopener" href="https://github.com/josdejong/mathjs/">mathjs/</a></li>
@@ -301,7 +305,7 @@
 <li><code>RegExp</code> 正则</li>
 <li><code>Function</code> 函数</li>
 </ul>
-<h2 id="6-1-包装类型"><a href="#6-1-包装类型" class="headerlink" title="6.1 包装类型"></a>6.1 包装类型</h2><p>为了便于操作基本类型值，<code>ECMAScript</code>还提供了几个特殊的引用类型，他们是基本类型的包装类型：</p>
+<h2 id="6-1-包装类型"><a href="#6-1-包装类型" class="headerlink" title="6.1 包装类型"></a>6.1 包装类型</h2><p>为了便于操作基本类型值，<code>ECMAScript</code>还提供了几个特殊的引用类型，它们是基本类型的包装类型：</p>
 <ul>
 <li><code>Boolean</code></li>
 <li><code>Number</code></li>
@@ -311,7 +315,7 @@
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="literal">true</span> === <span class="keyword">new</span> <span class="title class_">Boolean</span>(<span class="literal">true</span>); <span class="comment">// false</span></span><br><span class="line"><span class="number">123</span> === <span class="keyword">new</span> <span class="title class_">Number</span>(<span class="number">123</span>); <span class="comment">// false</span></span><br><span class="line"><span class="string">&#x27;furmen&#x27;</span> === <span class="keyword">new</span> <span class="title class_">String</span>(<span class="string">&#x27;furmen&#x27;</span>); <span class="comment">// false</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="keyword">typeof</span> <span class="keyword">new</span> <span class="title class_">String</span>(<span class="string">&#x27;furmen&#x27;</span>)); <span class="comment">// object</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="keyword">typeof</span> <span class="string">&#x27;furmen&#x27;</span>); <span class="comment">// string</span></span><br></pre></td></tr></table></figure>
 
 <blockquote>
-<p>引用类型和包装类型的主要区别就是对象的生存期，使用new操作符创建的引用类型的实例，在执行流离开当前作用域之前都一直保存在内存中，而自基本类型则只存在于一行代码的执行瞬间，然后立即被销毁，这意味着我们不能在运行时为基本类型添加属性和方法。</p>
+<p>引用类型和包装类型的主要区别就是对象的生存期，使用new操作符创建的引用类型的实例，在执行流离开当前作用域之前都一直保存在内存中，而基本类型则只存在于一行代码的执行瞬间，然后立即被销毁，这意味着我们不能在运行时为基本类型添加属性和方法。</p>
 </blockquote>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> name = <span class="string">&#x27;furmen&#x27;</span></span><br><span class="line">name.<span class="property">color</span> = <span class="string">&#x27;red&#x27;</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(name.<span class="property">color</span>); <span class="comment">// undefined</span></span><br></pre></td></tr></table></figure>
 
@@ -320,17 +324,17 @@
 <li>拆箱操作：把引用类型转换为基本类型</li>
 </ul>
 <p>既然原始类型不能扩展属性和方法，那么我们是如何使用原始类型调用方法的呢？</p>
-<p>每当我们操作一个基础类型时，后台就会自动创建一个包装类型的对象，从而让我们能够调用一些方法和属性，例如下面的代码：</p>
+<p>每当我们操作一个基础类型时，后台就会自动创建一个包装类型的对象，从而能够调用一些方法和属性，例如下面的代码：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> name = <span class="string">&quot;furmen&quot;</span>;</span><br><span class="line"><span class="keyword">var</span> name2 = name.<span class="title function_">substring</span>(<span class="number">2</span>);</span><br></pre></td></tr></table></figure>
 
-<p>际上发生了以下几个过程：</p>
+<p>实际上发生了以下几个过程：</p>
 <ul>
 <li>创建一个<code>String</code>的包装类型实例</li>
 <li>在实例上调用<code>substring</code>方法</li>
 <li>销毁实例</li>
 </ul>
 <p>也就是说，我们使用基本类型调用方法，就会自动进行装箱和拆箱操作，相同的，我们使用<code>Number</code>和<code>Boolean</code>类型时，也会发生这个过程。</p>
-<p>从引用类型到基本类型的转换，也就是拆箱的过程中，会遵循<code>ECMAScript规范</code>规定的<code>toPrimitive</code>原则，一般会调用引用类型的<code>valueOf</code>和<code>toString</code>方法，你也可以直接重写<code>toPeimitive</code>方法。一般转换成不同类型的值遵循的原则不同，例如：</p>
+<p>从引用类型到基本类型的转换，也就是拆箱的过程中，会遵循<code>ECMAScript规范</code>规定的<code>toPrimitive</code>原则，一般会调用引用类型的<code>valueOf</code>和<code>toString</code>方法，你也可以直接重写<code>toPeimitive</code>方法。<br>一般转换成不同类型的值遵循的原则不同，例如：</p>
 <ul>
 <li>引用类型转换为<code>Number</code>类型，先调用<code>valueOf</code>，再调用<code>toString</code></li>
 <li>引用类型转换为<code>String</code>类型，先调用<code>toString</code>，再调用<code>valueOf</code></li>
@@ -339,7 +343,7 @@
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> obj = &#123;</span><br><span class="line">  <span class="attr">valueOf</span>: <span class="function">() =&gt;</span> &#123; <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;valueOf&#x27;</span>); <span class="keyword">return</span> <span class="number">123</span>; &#125;,</span><br><span class="line">  <span class="attr">toString</span>: <span class="function">() =&gt;</span> &#123; <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;toString&#x27;</span>); <span class="keyword">return</span> <span class="string">&#x27;furmen&#x27;</span>; &#125;,</span><br><span class="line">&#125;;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj - <span class="number">1</span>);   <span class="comment">// valueOf   122</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`<span class="subst">$&#123;obj&#125;</span>furmen`</span>); <span class="comment">// toString  furmenfurmen</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> obj2 = &#123;</span><br><span class="line">  [<span class="title class_">Symbol</span>.<span class="property">toPrimitive</span>]: <span class="function">() =&gt;</span> &#123; <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;toPrimitive&#x27;</span>); <span class="keyword">return</span> <span class="number">123</span>; &#125;,</span><br><span class="line">&#125;;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj2 - <span class="number">1</span>);   <span class="comment">// valueOf   122</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> obj3 = &#123;</span><br><span class="line">  <span class="attr">valueOf</span>: <span class="function">() =&gt;</span> &#123; <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;valueOf&#x27;</span>); <span class="keyword">return</span> &#123;&#125;; &#125;,</span><br><span class="line">  <span class="attr">toString</span>: <span class="function">() =&gt;</span> &#123; <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;toString&#x27;</span>); <span class="keyword">return</span> &#123;&#125;; &#125;,</span><br><span class="line">&#125;;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj3 - <span class="number">1</span>);  </span><br><span class="line"><span class="comment">// valueOf  </span></span><br><span class="line"><span class="comment">// toString</span></span><br><span class="line"><span class="comment">// TypeError</span></span><br></pre></td></tr></table></figure>
 
 <p>除了程序中的自动拆箱和自动装箱，我们还可以手动进行拆箱和装箱操作。我们可以直接调用包装类型的<code>valueOf</code>或<code>toString</code>，实现拆箱操作：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> num =<span class="keyword">new</span> <span class="title class_">Number</span>(<span class="string">&quot;123&quot;</span>);  </span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>( <span class="keyword">typeof</span> num.<span class="title function_">valueOf</span>() ); <span class="comment">//number</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>( <span class="keyword">typeof</span> num.<span class="title function_">toString</span>() ); <span class="comment">//string</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> num = <span class="keyword">new</span> <span class="title class_">Number</span>(<span class="string">&quot;123&quot;</span>);  </span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>( <span class="keyword">typeof</span> num.<span class="title function_">valueOf</span>() ); <span class="comment">//number</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>( <span class="keyword">typeof</span> num.<span class="title function_">toString</span>() ); <span class="comment">//string</span></span><br></pre></td></tr></table></figure>
 
 <h1 id="七、类型转换"><a href="#七、类型转换" class="headerlink" title="七、类型转换"></a>七、类型转换</h1><p>因为<code>JavaScript</code>是弱类型的语言，所以类型转换发生非常频繁，上面我们说的装箱和拆箱其实就是一种类型转换。</p>
 <p>类型转换分为两种，隐式转换即程序自动进行的类型转换，强制转换即我们手动进行的类型转换</p>
@@ -396,7 +400,7 @@
 <p>根据上面的拆箱转换，以及<code>==</code>的隐式转换，我们可以轻松写出答案：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> a = &#123;</span><br><span class="line">   <span class="attr">value</span>:[<span class="number">3</span>,<span class="number">2</span>,<span class="number">1</span>],</span><br><span class="line">   <span class="attr">valueOf</span>: <span class="keyword">function</span> (<span class="params"></span>) &#123;<span class="keyword">return</span> <span class="variable language_">this</span>.<span class="property">value</span>.<span class="title function_">pop</span>(); &#125;,</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
 
-<h1 id="八、判断JavaScript数据类型的方式"><a href="#八、判断JavaScript数据类型的方式" class="headerlink" title="八、判断JavaScript数据类型的方式"></a>八、判断JavaScript数据类型的方式</h1><h2 id="8-1-typeof"><a href="#8-1-typeof" class="headerlink" title="8.1 typeof"></a>8.1 typeof</h2><p><strong>适用场景</strong></p>
+<h1 id="八、判断数据类型的方式"><a href="#八、判断数据类型的方式" class="headerlink" title="八、判断数据类型的方式"></a>八、判断数据类型的方式</h1><h2 id="8-1-typeof"><a href="#8-1-typeof" class="headerlink" title="8.1 typeof"></a>8.1 typeof</h2><p><strong>适用场景</strong></p>
 <p><code>typeof</code>操作符可以准确判断一个变量是否为下面几个原始类型：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typeof</span> <span class="string">&#x27;furmen&#x27;</span>  <span class="comment">// string</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="number">123</span>  <span class="comment">// number</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="literal">true</span>  <span class="comment">// boolean</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="title class_">Symbol</span>()  <span class="comment">// symbol</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="literal">undefined</span>  <span class="comment">// undefined</span></span><br></pre></td></tr></table></figure>
 
@@ -472,8 +476,11 @@
                 
                 <div class="article-prev-next">
                     
+                        <a href="/2023/03/02/js%E6%B5%85%E6%8B%B7%E8%B4%9D%E5%92%8C%E6%B7%B1%E6%8B%B7%E8%B4%9D/" class="prev-prefix">« </a> 上一篇：    <a href="/2023/03/02/js%E6%B5%85%E6%8B%B7%E8%B4%9D%E5%92%8C%E6%B7%B1%E6%8B%B7%E8%B4%9D/" title="发布于 2023-03-02 12:00">js深拷贝与浅拷贝</a>
+                        <br>
                     
-                        <a href="/2023/02/28/js%E4%B8%AD%E5%8E%9F%E5%9E%8B%E5%92%8C%E5%8E%9F%E5%9E%8B%E9%93%BE/" class="next-prefix">» </a> 下一篇：    <a href="/2023/02/28/js%E4%B8%AD%E5%8E%9F%E5%9E%8B%E5%92%8C%E5%8E%9F%E5%9E%8B%E9%93%BE/" title="发布于 2023-02-28 12:00">js中原型和原型链</a>
+                    
+                        <a href="/2023/02/28/js%E5%8E%9F%E5%9E%8B%E5%92%8C%E5%8E%9F%E5%9E%8B%E9%93%BE/" class="next-prefix">» </a> 下一篇：    <a href="/2023/02/28/js%E5%8E%9F%E5%9E%8B%E5%92%8C%E5%8E%9F%E5%9E%8B%E9%93%BE/" title="发布于 2023-02-28 12:00">js中原型和原型链</a>
                     
                 </div>
             </div>
