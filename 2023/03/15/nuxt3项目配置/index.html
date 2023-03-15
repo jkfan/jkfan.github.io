@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, shrink-to-fit=no">
+    <meta name="referrer" content="origin">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <title>
+        
+            nuxt3项目配置
+        
+    </title>
+    <link rel="shortcut icon" href="#"/>
+
+    <link type="text/css" rel="stylesheet" href="/font/LongCang.css">
+    <link type="text/css" rel="stylesheet" href="/font/Monda.css">
+    <link type="text/css" rel="stylesheet" href="/font/NotoSansSC.css">
+    <link type="text/css" rel="stylesheet" href="/font/NotoSerifSC.css">
+    <link type="text/css" rel="stylesheet" href="/font/Playball.css">
+    <link type="text/css" rel="stylesheet" href="/font/PTMono.css">
+    <link type="text/css" rel="stylesheet" href="/font/Roboto.css">
+    <link type="text/css" rel="stylesheet" href="/font/RobotoSlab.css">
+    <link type="text/css" rel="stylesheet" href="/font/Rosario.css">
+    <link type="text/css" rel="stylesheet" href="/font/UbuntuMono.css">
+
+    <link type="text/css" rel="stylesheet" href="/css/base.css">
+    <link type="text/css" rel="stylesheet" href="/css/code.css">
+
+    <script type="text/javascript" src="/js/jquery-3.4.1.min.js"></script>
+<meta name="generator" content="Hexo 5.4.2"></head>
+<body>
+    <a id="cover"></a>
+    <link type="text/css" rel="stylesheet" href="/css/post.css">
+<div id="header" class="header">
+    <div class="vertical">
+        <div class="inner">
+            
+                <h1 class="header-subtitle">nuxt3项目配置</h1>
+                <div class="header-subinfo">
+                    <p class="article-info-text">
+                        <span>
+                            <i class="iconfont icon-time"></i> 发表时间：2023-03-15
+                        </span>
+                        
+                            <span id="/2023/03/15/nuxt3项目配置/" class="leancloud_visitors" data-flag-title="nuxt3项目配置">
+                                <i class="iconfont icon-browse"></i> 阅读：<sapn class="leancloud-visitors-count"></span>
+                            </span>
+                        
+                        <span>
+                            <i class="iconfont icon-interactive"></i> 评论：<span class="valine-comment-count" data-xid="/2023/03/15/nuxt3项目配置/"></span>
+                        </span>  
+                    </p>
+                    
+                        
+                            <span class="category-color">Vue</span>
+                        
+                    
+                    
+                </div>
+            
+        </div>
+    </div>
+    
+</div>
+<div id="container">
+    
+        <!-- 文章页面 -->
+        <div id="article">
+            <div class="toc"></div>
+            <div class="article-body">
+                <h1 id="一、初识NuxtJS"><a href="#一、初识NuxtJS" class="headerlink" title="一、初识NuxtJS"></a>一、初识NuxtJS</h1><p>2021年10月13日，尤雨溪在微博上给Nuxt3带货了，在23日的直播分享再一次给Nuxt3带货，并且独占一页ppt，看来这个<code>Nuxt3</code>一定不简单！那这个框架是做啥的呢？我们就一起来看看吧。</p>
+<h2 id="1-简介"><a href="#1-简介" class="headerlink" title="1.简介"></a>1.简介</h2><p>Nuxt 是使用简便的 Web 框架，用于构建现代和高性能的 Web 应用，可以部署在任何运行 JavaScript 的平台上。</p>
+<p>Nuxt 3.0 于2022年11月18日正式发布了稳定版，3.0 基于 Vue 3，为 TypeScript 提供了 “一等公民” 支持，并进行了一次彻底的重构，对内核进行了精简，速度更快，体验更好。</p>
+<p>Nuxt 3.0 的 API 已完全稳定，可用于生产环境。所有可组合项、文件系统约定和配置都确保向后兼容 Nuxt 3.0.0。Nuxt 3 目前支持 Node.js 14、16、18 和 19，建议使用最新的 Node.js LTS 版本，由于 Node.js 14 即将 EOL，开发者最好尽可能升级到最新的 18.x。</p>
+<h2 id="2-新特性"><a href="#2-新特性" class="headerlink" title="2.新特性"></a>2.新特性</h2><ul>
+<li>更轻量：以现代浏览器为目标的服务器部署和客户端产物最多可缩小 75 倍</li>
+<li>更快：基于 nitro 提供动态代码分割能力，以优化冷启动性能</li>
+<li>Hybrid：增量静态生成和其他的高级功能现在都成为可能</li>
+<li>Suspense：在任意组件和导航前后都可以获取数据</li>
+<li>Composition API：使用 Composition API 和 Nuxt 3 的 composables 实现真正的代码复用</li>
+<li>Nuxt CLI：没有任何依赖，帮你轻松搭建项目和集成模块</li>
+<li>Nuxt Devtools：通过直接在浏览器中查看信息和快速修复实现更快地工作</li>
+<li>Nuxt Kit：具有 Typescript 和跨版本兼容性的全新模块开发</li>
+<li>Webpack 5：更快的构建时间和更小的包大小，无需配置</li>
+<li>Vite：使用 Vite 作为打包工具，体验闪电般快速的 HMR</li>
+<li>Vue 3：Vue 3 是你下一个 Web 应用程序的坚实基础</li>
+<li>TypeScript：使用原生 TypeScript 和 ESM 构建，无需额外步骤</li>
+</ul>
+<h2 id="3-Nuxt独特之处"><a href="#3-Nuxt独特之处" class="headerlink" title="3.Nuxt独特之处"></a>3.Nuxt独特之处</h2><h3 id="3-1-搜索引擎优化"><a href="#3-1-搜索引擎优化" class="headerlink" title="3.1 搜索引擎优化"></a>3.1 搜索引擎优化</h3><p>解决Vue构建<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=SPA&spm=1001.2101.3001.7020">SPA</a>项目（单页面应用程序）的带来的不利于SEO问题。如果你还不知道什么是SEO，下面的扩展内容要认真恶补一下了。</p>
+<h3 id="3-2-新建项目简单，项目启动和重构非常快"><a href="#3-2-新建项目简单，项目启动和重构非常快" class="headerlink" title="3.2 新建项目简单，项目启动和重构非常快"></a>3.2 新建项目简单，项目启动和重构非常快</h3><p>Nuxt3 使用 Vue.js 作为视图引擎。Nuxt3 中提供了所有 Vue 3 功能，所以我们创建的Nuxt项目其实也是vue3项目。而且很多工具Nuxt都帮我们选好了，我们可以简化搭建项目过程而专注于开发。比如，以下是部分Nuxt的选择：</p>
+<ul>
+<li>JavaScript 框架：Vue.js</li>
+<li>vue项目构建工具：Vite</li>
+<li>热模块化开发：webpack 5</li>
+<li>代码编译，用做 JavaScript 语法的转译器：esbuild（新时代的的性能构建工具）</li>
+<li>后端服务的http框架：h3（支持Serverless、Worker 和 Node，性能强大）</li>
+<li>导航路由：vue-router</li>
+<li>打包工具：nuxt/vite-builder 和 nuxt/webpack-builder</li>
+</ul>
+<p>按照约定，提供了一些默认目录（需要自己创建，Nuxt会识别），以便于路径访问，后面介绍的时候会提到这些目录。</p>
+<ul>
+<li>assets             // 静态资源</li>
+<li>public              // 公共静态资源，可公开获得</li>
+<li>pages             // 开发页面</li>
+<li>components   // 组件</li>
+<li>layouts           // 项目布局</li>
+<li>middleware    // 中间件</li>
+<li>plugins           // 插件</li>
+<li>server            // 后端</li>
+</ul>
+<h3 id="3-3-静态资源地址访问"><a href="#3-3-静态资源地址访问" class="headerlink" title="3.3 静态资源地址访问"></a>3.3 静态资源地址访问</h3><p>public目录结构如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">-| public/</span><br><span class="line">--| img/</span><br><span class="line">----| cute.png</span><br></pre></td></tr></table></figure>
+
+<p>以静态url的方式访问，基于“约定”，直接写 <strong>public</strong> 以下的路径即可</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;img src=&quot;/img/cute.png&quot; alt=&quot;卡哇伊&quot; /&gt;</span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure>
+
+<p>assets目录结构如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">-| assets/</span><br><span class="line">--| scss/</span><br><span class="line">----| default.scss</span><br><span class="line">--| ts/</span><br><span class="line">----| index.ts</span><br><span class="line">--| img/</span><br><span class="line">----| cute.png</span><br></pre></td></tr></table></figure>
+
+<p>必须使用<code>~/assets/</code>路径引用位于目录中的文件：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;img src=&quot;~/assets/img/cute.png&quot; alt=&quot;卡哇伊&quot; /&gt;</span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-4-路由使用"><a href="#3-4-路由使用" class="headerlink" title="3.4 路由使用"></a>3.4 路由使用</h3><p>它是根据文件名从目录中创建的每个组件生成路由。不用像以前vue那样去router.js配置路由了，而且它有自己的路由传参方式，类似的其他路由功能Nuxt都有对应方式，更加清楚简单，也不会很容易搞错。</p>
+<p>此文件系统路由使用命名约定来创建动态和嵌套路由，简单举例，像这样创建页面：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">-| pages/</span><br><span class="line">--| about.vue</span><br><span class="line">--| posts/</span><br><span class="line">----| [id].vue</span><br></pre></td></tr></table></figure>
+
+<p>修改app.vue</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">    &lt;header&gt;</span><br><span class="line">        &lt;nav&gt;</span><br><span class="line">            &lt;ul&gt;</span><br><span class="line">                &lt;li&gt;&lt;NuxtLink to=&quot;/about&quot;&gt;About&lt;/NuxtLink&gt;&lt;/li&gt;</span><br><span class="line">                &lt;li&gt;&lt;NuxtLink to=&quot;/posts/1&quot;&gt;Post 1&lt;/NuxtLink&gt;&lt;/li&gt;</span><br><span class="line">                &lt;li&gt;&lt;NuxtLink to=&quot;/posts/2&quot;&gt;Post 2&lt;/NuxtLink&gt;&lt;/li&gt;</span><br><span class="line">            &lt;/ul&gt;</span><br><span class="line">        &lt;/nav&gt;</span><br><span class="line">    &lt;/header&gt;</span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure>
+
+<p>js方式响应跳转也可以用vue的 <code>router.push()</code>，不过Nuxt建议使用 <code>await navigateTo()</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;script setup&gt;</span><br><span class="line">    async function clickAction() &#123;</span><br><span class="line">    const router = useRouter();</span><br><span class="line">    // router.push(&#123; path: &quot;/about&quot; &#125;);</span><br><span class="line">    await navigateTo(&#123;</span><br><span class="line">        path: &quot;/about&quot;,</span><br><span class="line">        query: &#123;</span><br><span class="line">            name: &quot;furmen&quot;,</span><br><span class="line">            age: 18,</span><br><span class="line">        &#125;,</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-5-layouts布局"><a href="#3-5-layouts布局" class="headerlink" title="3.5 layouts布局"></a>3.5 layouts布局</h3><p>layouts布局很有用，类似于父组件，但不同，优势是简单继承可重用，比如定义了一个默认框架布局，设置在app.vue中，name在其之内的路由都默认继承拥有此外部框架。当然，可以选择是否继承和控制作用范围。框架组件必须放到layouts目录。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">-| layouts/</span><br><span class="line">---| default.vue</span><br><span class="line">---| custom.vue</span><br></pre></td></tr></table></figure>
+
+<p>default.vue</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">	&lt;div&gt;</span><br><span class="line">        默认布局</span><br><span class="line">        &lt;slot /&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    // This will work in both `&lt;script setup&gt;` and `&lt;script&gt;`</span><br><span class="line">    definePageMeta(&#123;</span><br><span class="line">        layout: &quot;custom&quot;,</span><br><span class="line">    &#125;);</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>app.vue</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">	&lt;NuxtLayout :name=&quot;layout&quot;&gt;</span><br><span class="line">    	&lt;NuxtPage /&gt;</span><br><span class="line">    &lt;/NuxtLayout&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line">&lt;script setup&gt;</span><br><span class="line">    // 不设置name属性默认使用名为 default.vue 的布局组件，可通过 name 或 :name 动态修改默认布局。可以做到切换主题的功能</span><br><span class="line">    const layout = &quot;custom&quot;;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>NuxtLayout是Nuxt内置的布局组件</p>
+<p>NuxtPage是Nuxt内置的路由出口组件，相当于vue-router中的router-view</p>
+<h3 id="3-6-middleWare中间件"><a href="#3-6-middleWare中间件" class="headerlink" title="3.6 middleWare中间件"></a>3.6 middleWare中间件</h3><p>Nuxt有强大的中间件功能，很方便定制，使用也简单，可设置作用范围，匿名、局部和全局。<br>当然也可以设置路由中间件，类似于vue的导航守卫，不过参数只有to和form，没有next()参数，要想取消to的访问可以直接 return abortNavigation() 终止导航，想要重定向的话可以使用 return navigateTo(‘/‘) 指定重定向路由。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">-| middleware/</span><br><span class="line">---| auth.ts</span><br></pre></td></tr></table></figure>
+
+<p>注意，中间件定义的路由方法名必须是 <code>defineNuxtRouteMiddleware((to, from) =&gt;&#123;&#125;)</code> ,不可更改，这是约定，文件名随意。</p>
+<p>auth.ts</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title function_">defineNuxtRouteMiddleware</span>(<span class="function">(<span class="params">to, <span class="keyword">from</span></span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;要去那个页面:&quot;</span>+to.<span class="property">path</span>)</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(to)</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;来自那个页面:&quot;</span>+<span class="keyword">from</span>.<span class="property">path</span>)</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="keyword">from</span>)</span><br><span class="line">    <span class="keyword">if</span> (to.<span class="property">params</span>.<span class="property">id</span> === <span class="string">&#x27;1&#x27;</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="title function_">abortNavigation</span>() <span class="comment">// 终止导航</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// return navigateTo(&#x27;/xxx&#x27;) // 重定向路由</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>其他页面中使用，引用这个路由中间件（也必须使用 <code>definePageMeta(&#123;&#125;)</code> 方法）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">......</span><br><span class="line">&lt;/template&gt;</span><br><span class="line">&lt;script setup&gt;</span><br><span class="line">    definePageMeta(&#123;</span><br><span class="line">        middleware: [&quot;auth&quot;]</span><br><span class="line">        // or middleware: &#x27;auth&#x27;</span><br><span class="line">    &#125;)</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-7-plugins插件"><a href="#3-7-plugins插件" class="headerlink" title="3.7 plugins插件"></a>3.7 plugins插件</h3><p>可引入第三方插件和自定义插件，后者不说前者一定用得到，同样配置简单，几乎是npm一下然后定义声明一下就好了。<br>同样约定，只有目录顶层的<code>plugins/</code>文件（或任何子目录中的index文件）将被注册为插件。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">-| plugins</span><br><span class="line"> | - myPlugin.ts</span><br><span class="line"> | - myOtherPlugin</span><br><span class="line"> | --- supportingFile.ts</span><br><span class="line"> | --- componentToRegister.vue</span><br><span class="line"> | --- index.ts</span><br></pre></td></tr></table></figure>
+
+<p>其中，只有<code>myPlugin.ts</code>和<code>myOtherPlugin/index.ts</code>会被注册。</p>
+<p>server服务，提供后端功能</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">-| server/</span><br><span class="line">--| api/</span><br><span class="line">----| hello.ts</span><br><span class="line">--| routes/</span><br><span class="line">----| hello.ts</span><br></pre></td></tr></table></figure>
+
+<p>Nuxt 提供了后端服务器功能，性能好，但是功能性没法和前后端分离比。</p>
+<h2 id="4-扩展-SEO"><a href="#4-扩展-SEO" class="headerlink" title="4.扩展-SEO"></a>4.扩展-SEO</h2><p>搜索引擎优化，又称为SEO，即Search Engine Optimization，它是一种通过分析搜索引擎的排名规律，对网站进行符合规则的优化的技术。可以提高网站在搜索引擎中的自然排名，吸引更多的用户访问网站，提高网站的访问量。</p>
+<h3 id="4-1-搜索引擎如何收集网站信息进行排名？"><a href="#4-1-搜索引擎如何收集网站信息进行排名？" class="headerlink" title="4.1 搜索引擎如何收集网站信息进行排名？"></a>4.1 搜索引擎如何收集网站信息进行排名？</h3><p>搜索引擎是通过专有的蜘蛛程序（爬虫）来查找出每一个网页上的HTML代码，它会搜索网站的所有链接，分析收集网站的关键字以便搜索，通过自身不断变化的算法进行自然排名。蜘蛛程序需要访问完所有的页面，需要花费很长的时间，所以网站的导航需要便于蜘蛛程序进行索引收录。如果我们的网站设计的很方便蜘蛛进行访问，加快它的访问速度。就有利于增加搜索引擎友好度。</p>
+<h3 id="4-2-为什么SPA不利于SEO？"><a href="#4-2-为什么SPA不利于SEO？" class="headerlink" title="4.2 为什么SPA不利于SEO？"></a>4.2 为什么SPA不利于SEO？</h3><p>只要是单页面的内容都是动态匹配路由进行渲染的，而且很多内容都需要在一个页面显示，那么就会有很多异步操作，蜘蛛程序不会去等你完全加载完的，想要对蜘蛛程序有好一点，就需要将更多的内容转换成静态资源，更快的加载完成，SSR渲染就是这样的原理，比如NUXT（使用SSR渲染）就可以帮你做到先从后台将所有数据加载过来然后整个给你返到前端，SEO效果只会更好，首屏加载速度也会快很多。</p>
+<h3 id="4-3-如何提高网站排名？"><a href="#4-3-如何提高网站排名？" class="headerlink" title="4.3  如何提高网站排名？"></a>4.3  如何提高网站排名？</h3><ul>
+<li>提高网站链接的访问质量和外网引用本网站链接的数量。</li>
+<li>放置优质的内容，比如博客网站的话，文章尽量保持原创度。</li>
+<li>网站结构要整洁简单，不要设计的过于复杂。</li>
+</ul>
+<h3 id="4-4-关键字一般设置在哪？"><a href="#4-4-关键字一般设置在哪？" class="headerlink" title="4.4 关键字一般设置在哪？"></a>4.4 关键字一般设置在哪？</h3><ul>
+<li>title 标签（重要）</li>
+<li>meta 标签（主要，里面有几个重要的属性，例如keyword、description等）</li>
+</ul>
+<h3 id="4-5-关键词设置注意"><a href="#4-5-关键词设置注意" class="headerlink" title="4.5 关键词设置注意"></a>4.5 关键词设置注意</h3><ul>
+<li>要与网站主题相关，不要一味的追求热门词汇；</li>
+<li>避免使用含义很广的一般性词汇，越明确越好，不要把小可爱当笨蛋</li>
+<li>根据产品的种类及特性，尽可能选取具体的词</li>
+<li>5至10个关键词比较好</li>
+<li>网页内出现频率控制住，不要太多</li>
+</ul>
+<p>了解了这么多，赶紧来上手nuxt吧</p>
+<h1 id="二、Nuxt3的安装启动"><a href="#二、Nuxt3的安装启动" class="headerlink" title="二、Nuxt3的安装启动"></a>二、Nuxt3的安装启动</h1><p>前提，确保有Nuxt3的安装环境</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Node.js（必要）</span><br><span class="line">Visual Studio Code（推荐）</span><br><span class="line">Volar（推荐）</span><br></pre></td></tr></table></figure>
+
+<p>node.js 版本之间有差异，安装Nuxt3目前官方推荐v16，或更高的版本。</p>
+<h2 id="1-安装"><a href="#1-安装" class="headerlink" title="1.安装"></a>1.安装</h2><p>首先在你的Nuxt3工作空间下新建一个Nuxt3项目，打开项目空间文件夹，在项目空间文件夹路径输入 cmd 或 powershell + 回车，打开命令窗口</p>
+<p>安装方式：</p>
+<p>(1)方式一：npx 安装</p>
+<p><code>npx</code> 是 <code>npm5.2</code> 之后发布的一个命令，可以代替 <code>npm</code> 命令安装依赖或包。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npx nuxi init nuxt-app   # nuxt-app 是项目名</span><br></pre></td></tr></table></figure>
+
+<p>(2)方式二：pnpm 安装</p>
+<p><code>pnpm</code> 是 <code>Node.js</code> 的替代包管理器。它是 <code>npm</code> 的直接替代品，但速度更快、效率更高。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pnpm dlx nuxi init nuxt-app   # nuxt-app 是项目名</span><br></pre></td></tr></table></figure>
+
+<p>因为 pnpm 和 npm 不是同一个东西，需要另外安装。如果你没有，可以建议安装使用。<br>直接使用 npx 或 npm 安装 pnpm。</p>
+<p>安装 pnpm</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm install -g pnpm</span><br><span class="line">或</span><br><span class="line">npx pnpm add -g pnpm</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>注意</p>
+<p>命令中的 nuxt-app 就是项目包名，也就是说，你在安装nuxt3 的同时会生成一个项目包，项目可自定义，如果刚开始定义包名是这个，也可以把项目删了重新新建项目。</p>
+<p>没错，它的安装便是新建一个 Nuxt3 项目，中间不需要你选任何工具的配置，它已经默认帮你打造了一套优质舒适的开发环境。</p>
+</li>
+<li><p>踩坑</p>
+<p>由于需要翻墙或其他原因，在写这篇文章时，执行安装命令时会提示</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Error: Failed to download template from registry: request to https://raw.githubusercontent.com/nuxt/starter/templates/templates/v3.json failed, reason: getaddrinfo ENOENT raw.githubusercontent.com</span><br></pre></td></tr></table></figure>
+
+<p>我们要做的事情就是访问提示的<a target="_blank" rel="noopener" href="https://raw.githubusercontent.com/nuxt/starter/templates/templates/v3.json">网址</a>后，浏览器上会展示出一个JSON</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;v3&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;defaultDir&quot;</span><span class="punctuation">:</span> <span class="string">&quot;nuxt-app&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;url&quot;</span><span class="punctuation">:</span> <span class="string">&quot;https://nuxt.com&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;tar&quot;</span><span class="punctuation">:</span> <span class="string">&quot;https://codeload.github.com/nuxt/starter/tar.gz/refs/heads/v3&quot;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>访问其中的tar地址，就可以下载一个starter-3.tar.gz的压缩包，解压后starter3这个就是我们最终要下载安装的nuxt3项目模板了。</p>
+</li>
+</ul>
+<h2 id="2-启动"><a href="#2-启动" class="headerlink" title="2. 启动"></a>2. 启动</h2><p>进入项目目录</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd starter3</span><br></pre></td></tr></table></figure>
+
+<p>执行命令安装项目依赖</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm install</span><br><span class="line">yarn install</span><br><span class="line">pnpm install</span><br></pre></td></tr></table></figure>
+
+<p>上面三个命令任意一个都可以，推荐yarn或pnpm</p>
+<p>运行命令启动项目</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm run dev</span><br><span class="line">yarn dev</span><br><span class="line">pnpm dev</span><br></pre></td></tr></table></figure>
+
+<p>上面三个命令任意一个都可以</p>
+<p>访问：<a target="_blank" rel="noopener" href="http://localhost:3000/%EF%BC%8C%E5%B0%B1%E5%8F%AF%E4%BB%A5%E7%9C%8B%E5%88%B0%E5%A6%82%E4%B8%8B%E7%95%8C%E9%9D%A2%EF%BC%8C%E8%A1%A8%E7%A4%BA%E9%A1%B9%E7%9B%AE%E8%BF%90%E8%A1%8C%E6%88%90%E5%8A%9F%E3%80%82">http://localhost:3000/，就可以看到如下界面，表示项目运行成功。</a></p>
+<p><img src="https://static.furmen.cn/images/nuxt3-welcome.png" alt="图片"></p>
+<h1 id="三、项目基本配置"><a href="#三、项目基本配置" class="headerlink" title="三、项目基本配置"></a>三、项目基本配置</h1><p>在开发项目中我们经常会使用到一些第三方库/插件、组件来丰富项目，这里列举一些开发后台项目用到的第三方库/插件、组件。</p>
+<h2 id="1-naive-ui"><a href="#1-naive-ui" class="headerlink" title="1.naive-ui"></a>1.naive-ui</h2><p>安装 <code>naive-ui</code> 和 <code>@css-render/vue3-ssr</code></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn add -D naive-ui @css-render/vue3-ssr</span><br></pre></td></tr></table></figure>
+
+<p>在 <code>nuxt.config.ts</code> 增添下列配置</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// https://nuxt.com/docs/api/configuration/nuxt-config</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title function_">defineNuxtConfig</span>(&#123;</span><br><span class="line">    <span class="attr">build</span>: &#123;</span><br><span class="line">        <span class="attr">transpile</span>:</span><br><span class="line">        process.<span class="property">env</span>.<span class="property">NODE_ENV</span> === <span class="string">&#x27;production&#x27;</span></span><br><span class="line">        ? [</span><br><span class="line">            <span class="string">&#x27;naive-ui&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;vueuc&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;@css-render/vue3-ssr&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;@juggle/resize-observer&#x27;</span></span><br><span class="line">        ]</span><br><span class="line">        : [<span class="string">&#x27;@juggle/resize-observer&#x27;</span>]</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">vite</span>: &#123;</span><br><span class="line">        <span class="attr">optimizeDeps</span>: &#123;</span><br><span class="line">            <span class="attr">include</span>:</span><br><span class="line">            process.<span class="property">env</span>.<span class="property">NODE_ENV</span> === <span class="string">&#x27;development&#x27;</span></span><br><span class="line">            ? [<span class="string">&#x27;naive-ui&#x27;</span>, <span class="string">&#x27;vueuc&#x27;</span>, <span class="string">&#x27;date-fns-tz/esm/formatInTimeZone&#x27;</span>]</span><br><span class="line">            : []</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>在 Nuxt 项目的 <code>plugins</code> 文件夹增加naive-ui<a target="_blank" rel="noopener" href="https://github.com/07akioni/naive-ui-nuxt-demo/blob/main/plugins/naive-ui.ts">插件</a></p>
+<p>修改app.vue</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">	&lt;n-config-provider&gt;</span><br><span class="line">    	&lt;NuxtPage /&gt;</span><br><span class="line">    &lt;/n-config-provider&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line">&lt;script setup&gt;</span><br><span class="line">    import &#123; NConfigProvider &#125; from &#x27;naive-ui&#x27;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>新建pages目录，并创建index.vue文件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">	&lt;div class=&quot;&quot;&gt;</span><br><span class="line">        &lt;h1&gt;首页&lt;/h1&gt;</span><br><span class="line">        &lt;n-button&gt;按钮&lt;/n-button&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script setup&gt;</span><br><span class="line">    import &#123; NButton &#125; from &#x27;naive-ui&#x27;;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;style scoped&gt;&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+
+<p>此时就可以使用naive-ui的button组件了。</p>
+<p>在app.vue文件中，还可以配置主题</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">	&lt;n-config-provider </span><br><span class="line">		:locale=&quot;zhCN&quot;</span><br><span class="line">         :date-locale=&quot;dateZhCN&quot;</span><br><span class="line">         :theme-overrides=&quot;themeOverrides&quot;</span><br><span class="line">         inline-theme-disabled</span><br><span class="line">     &gt;</span><br><span class="line">       </span><br><span class="line">        &lt;NuxtLayout&gt;</span><br><span class="line">           &lt;NuxtPage /&gt;</span><br><span class="line">        &lt;/NuxtLayout&gt;</span><br><span class="line">    &lt;/n-config-provider&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script setup&gt;</span><br><span class="line">    import &#123; zhCN, dateZhCN, NConfigProvider, NDialogProvider, NMessageProvider &#125; from &#x27;naive-ui&#x27;;</span><br><span class="line">    // 自定义配置主题</span><br><span class="line">    const themeOverrides = &#123;</span><br><span class="line">        common: &#123;</span><br><span class="line">            primaryColor: &quot;#FC8952&quot;,</span><br><span class="line">            primaryColorHover: &quot;#FC8952&quot;,</span><br><span class="line">            primaryColorPressed: &quot;#FC8952&quot;,</span><br><span class="line">            primaryColorSuppl: &quot;#FC8952&quot;,</span><br><span class="line">        &#125;,</span><br><span class="line">        Button: &#123;</span><br><span class="line">            textColor: &quot;#FC8952&quot;,</span><br><span class="line">            border: &quot;1px solid #FF763B&quot;,</span><br><span class="line">            textColor: &quot;#FF763B&quot;,</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>naive-ui 默认情况下使用 inline style 作为主题变量的载体，因此每个组件上都会挂载许多 inline CSS。如果你需要 SSR，或者想让开发者工具看起来更干净，可以打开 <code>inline-theme-disabled</code> 属性。</p>
+<h2 id="2-EsLint"><a href="#2-EsLint" class="headerlink" title="2.EsLint"></a>2.EsLint</h2><p><a target="_blank" rel="noopener" href="http://eslint.cn/">ESLint</a> 是一个代码检查工具，用来检查你的代码是否符合指定的规范，实现统一代码风格。</p>
+<ul>
+<li>规范<ul>
+<li>行业推荐的规范； 在创建项目时，我们使用的是 JavaScript Standard Style 代码风格的规则</li>
+<li>自定义的规范。你和你的团队可以自行约定一套规范</li>
+</ul>
+</li>
+<li>使用ESLint的好处在于：多人协作时代码风格统一</li>
+</ul>
+<p>单双引号、缩进、逗号等编码风格的统一十分有必要，下面使用 ESLint + Prettier + Husky 与 Lint Staged 配置 Nuxt 实现<strong>风格统一与代码优化</strong>，让代码更简洁，比如不允许未使用的变量，也可以指让代码更严谨，比如不允许未声明的全局变量，进一步提升工程的约束能力。</p>
+<blockquote>
+<p>项目中需要预先安装<code>typescript</code>依赖，且已经初始化 Git</p>
+</blockquote>
+<h3 id="2-1-配置基本的ESLint"><a href="#2-1-配置基本的ESLint" class="headerlink" title="2.1 配置基本的ESLint"></a>2.1 配置基本的ESLint</h3><p>执行下列命令，通过 ESLint 自带的初始化功能:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npx eslint --init</span><br></pre></td></tr></table></figure>
+
+<p>根据自己的需求回答一系列问题即可，如:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">Need to install the following packages:</span><br><span class="line">  eslint</span><br><span class="line">Ok to proceed? (y) y</span><br><span class="line">You can also run this command directly using &#x27;npm init @eslint/config&#x27;.</span><br><span class="line">Need to install the following packages:</span><br><span class="line">  @eslint/create-config</span><br><span class="line">Ok to proceed? (y) y</span><br><span class="line">√ How would you like to use ESLint? · problems</span><br><span class="line">√ What type of modules does your project use? · esm</span><br><span class="line">√ Which framework does your project use? · vue</span><br><span class="line">√ Does your project use TypeScript? · No / Yes</span><br><span class="line">√ Where does your code run? · browser, node</span><br><span class="line">√ What format do you want your config file to be in? · JavaScript</span><br><span class="line">Local ESLint installation not found.</span><br><span class="line">The config that you&#x27;ve selected requires the following dependencies:</span><br><span class="line"></span><br><span class="line">eslint-plugin-vue@latest @typescript-eslint/eslint-plugin@latest @typescript-eslint/parser@latest eslint@latest</span><br><span class="line">√ Would you like to install them now? · No / Yes</span><br><span class="line">√ Which package manager do you want to use? · yarn</span><br><span class="line">Installing eslint-plugin-vue@latest, @typescript-eslint/eslint-plugin@latest, @typescript-eslint/parser@latest, eslint@latest</span><br><span class="line">yarn add v1.22.19</span><br></pre></td></tr></table></figure>
+
+<p>如果选择了使用 TypeScript，它会自动为你安装<code>@typescript-eslint</code>一系列工具。按上述回答问题后最终安装了这些依赖：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">&quot;devDependencies&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    ...</span><br><span class="line">    <span class="attr">&quot;@typescript-eslint/eslint-plugin&quot;</span><span class="punctuation">:</span> <span class="string">&quot;^5.55.0&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;@typescript-eslint/parser&quot;</span><span class="punctuation">:</span> <span class="string">&quot;^5.55.0&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;eslint&quot;</span><span class="punctuation">:</span> <span class="string">&quot;^8.36.0&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;eslint-plugin-vue&quot;</span><span class="punctuation">:</span> <span class="string">&quot;^9.9.0&quot;</span><span class="punctuation">,</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-2-配置-eslintrc-js"><a href="#2-2-配置-eslintrc-js" class="headerlink" title="2.2 配置.eslintrc.js"></a>2.2 配置<code>.eslintrc.js</code></h3><p>同时在项目根目录会自动生成<code>.eslintrc.js</code>文件，打开并修改文件，结果如下:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">    <span class="attr">root</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="attr">env</span>: &#123;</span><br><span class="line">        <span class="attr">browser</span>: <span class="literal">true</span>,</span><br><span class="line">        <span class="attr">es2021</span>: <span class="literal">true</span>,</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">extends</span>: [</span><br><span class="line">        <span class="string">&#x27;eslint:recommended&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;plugin:vue/vue3-essential&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;plugin:@typescript-eslint/recommended&#x27;</span>,</span><br><span class="line">    ],</span><br><span class="line">    <span class="attr">overrides</span>: [],</span><br><span class="line">    <span class="attr">parser</span>: <span class="string">&#x27;vue-eslint-parser&#x27;</span>,</span><br><span class="line">    <span class="attr">parserOptions</span>: &#123;</span><br><span class="line">        <span class="attr">ecmaVersion</span>: <span class="string">&#x27;latest&#x27;</span>,</span><br><span class="line">        <span class="attr">sourceType</span>: <span class="string">&#x27;module&#x27;</span>,</span><br><span class="line">        <span class="attr">parser</span>: <span class="string">&#x27;@typescript-eslint/parser&#x27;</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">plugins</span>: [<span class="string">&#x27;vue&#x27;</span>, <span class="string">&#x27;@typescript-eslint&#x27;</span>],</span><br><span class="line">    <span class="attr">rules</span>: &#123;</span><br><span class="line">        <span class="string">&#x27;vue/script-setup-uses-vars&#x27;</span>: <span class="string">&#x27;error&#x27;</span>, </span><br><span class="line">        <span class="string">&#x27;vue/custom-event-name-casing&#x27;</span>: <span class="string">&#x27;off&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;vue/attributes-order&#x27;</span>: <span class="string">&#x27;off&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;vue/one-component-per-file&#x27;</span>: <span class="string">&#x27;off&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;vue/html-closing-bracket-newline&#x27;</span>: <span class="string">&#x27;off&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;vue/max-attributes-per-line&#x27;</span>: <span class="string">&#x27;off&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;vue/multiline-html-element-content-newline&#x27;</span>: <span class="string">&#x27;off&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;vue/singleline-html-element-content-newline&#x27;</span>: <span class="string">&#x27;off&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;vue/attribute-hyphenation&#x27;</span>: <span class="string">&#x27;off&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;vue/require-default-prop&#x27;</span>: <span class="string">&#x27;off&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;vue/multi-word-component-names&#x27;</span>: <span class="string">&#x27;off&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;vue/html-self-closing&#x27;</span>: [</span><br><span class="line">            <span class="string">&#x27;error&#x27;</span>,</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="attr">html</span>: &#123;</span><br><span class="line">                    <span class="attr">void</span>: <span class="string">&#x27;always&#x27;</span>,</span><br><span class="line">                    <span class="attr">normal</span>: <span class="string">&#x27;never&#x27;</span>,</span><br><span class="line">                    <span class="attr">component</span>: <span class="string">&#x27;always&#x27;</span>,</span><br><span class="line">                &#125;,</span><br><span class="line">                <span class="attr">svg</span>: <span class="string">&#x27;always&#x27;</span>,</span><br><span class="line">                <span class="attr">math</span>: <span class="string">&#x27;always&#x27;</span>,</span><br><span class="line">            &#125;,</span><br><span class="line">        ],</span><br><span class="line">        <span class="string">&#x27;vue/no-v-html&#x27;</span>: <span class="string">&#x27;off&#x27;</span>,</span><br><span class="line">    &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="2-3-配置-eslintignore"><a href="#2-3-配置-eslintignore" class="headerlink" title="2.3 配置.eslintignore"></a>2.3 配置<code>.eslintignore</code></h3><p>创建<code>.eslintignore</code>文件，根据习惯忽悠部分文件。这里只让 ESLint 检查核心代码文件，包括 <code>js</code>、<code>jsx</code>、<code>ts</code>、<code>tsx</code>文件：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">*.json</span><br><span class="line">*.html</span><br><span class="line">*rc.js</span><br><span class="line">*.svg</span><br><span class="line">*.woff</span><br><span class="line">*.ttf</span><br><span class="line">*.css</span><br><span class="line"></span><br><span class="line">.nuxt</span><br><span class="line">.husky</span><br><span class="line"></span><br><span class="line">.eslintrc.js</span><br><span class="line">.prettierrc.js</span><br><span class="line">package.json</span><br><span class="line">tsconfig.ts</span><br><span class="line">README.md</span><br><span class="line">node_modules</span><br><span class="line">*.sh</span><br><span class="line">*.md</span><br><span class="line">.vscode</span><br><span class="line">.idea</span><br><span class="line">dist</span><br><span class="line">build</span><br><span class="line">/public</span><br><span class="line">/docs</span><br><span class="line">.husky</span><br><span class="line">.local</span><br><span class="line">/bin</span><br><span class="line">Dockerfile</span><br></pre></td></tr></table></figure>
+
+<p>在<code>package.json</code>中的<code>scripts</code>中添加以下命令:</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;scripts&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;eslint&quot;</span><span class="punctuation">:</span> <span class="string">&quot;eslint . --ext .vue,.js,.jsx,.ts,.tsx --cache&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;eslint:fix&quot;</span><span class="punctuation">:</span> <span class="string">&quot;npm run eslint -- --fix&quot;</span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>此时，执行<code>npm run eslint</code>即是仅检查，而<code>eslint:fix</code>则是检查同时尽可能修复错误。</p>
+<p>虽然nuxt3默认支持了typescript，但是用eslint还是提示Cannot find module ‘typescript’，所以需要再安装typescript依赖<code>yarn add -D typescript</code></p>
+<h2 id="3-配置Prettier"><a href="#3-配置Prettier" class="headerlink" title="3. 配置Prettier"></a>3. 配置Prettier</h2><h3 id="3-1-安装"><a href="#3-1-安装" class="headerlink" title="3.1 安装"></a>3.1 安装</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn add prettier eslint-config-prettier --save-dev</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-2配置-prettierrc-js"><a href="#3-2配置-prettierrc-js" class="headerlink" title="3.2配置.prettierrc.js"></a>3.2配置<code>.prettierrc.js</code></h3><p>创建 Prettier 配置文件<code>.prettierrc.js</code>，常用配置项：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">    <span class="comment">// 单行最多 80 字符</span></span><br><span class="line">    <span class="attr">printWidth</span>: <span class="number">80</span>,</span><br><span class="line">    <span class="comment">// 一个 Tab 缩进 2 个空格</span></span><br><span class="line">    <span class="attr">tabWidth</span>: <span class="number">2</span>,</span><br><span class="line">    <span class="comment">// 每一行结尾不需要有分号</span></span><br><span class="line">    <span class="attr">semi</span>: <span class="literal">false</span>,</span><br><span class="line">    <span class="comment">// 使用单引号</span></span><br><span class="line">    <span class="attr">singleQuote</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="comment">// 在对象属性中，仅在必要时才使用引号，如 &quot;prop-foo&quot;</span></span><br><span class="line">    <span class="attr">quoteProps</span>: <span class="string">&quot;as-needed&quot;</span>,</span><br><span class="line">    <span class="comment">// 在 jsx 中使用双引号</span></span><br><span class="line">    <span class="attr">jsxSingleQuote</span>: <span class="literal">false</span>,</span><br><span class="line">    <span class="comment">// 使用 es5 风格的尾缀逗号，即数组和对象的最后一项成员后也需要逗号</span></span><br><span class="line">    <span class="attr">trailingComma</span>: <span class="string">&quot;es5&quot;</span>,</span><br><span class="line">    <span class="comment">// 大括号内首尾需要空格</span></span><br><span class="line">    <span class="attr">bracketSpacing</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="comment">// HTML 标签（以及 JSX，Vue 模板等）的反尖括号 &gt; 需要换行</span></span><br><span class="line">    <span class="attr">bracketSameLine</span>: <span class="literal">false</span>,</span><br><span class="line">    <span class="comment">// 箭头函数仅有一个参数时也需要括号，如 (arg) =&gt; &#123;&#125;</span></span><br><span class="line">    <span class="comment">// 使用 crlf 作为换行符</span></span><br><span class="line">    <span class="attr">endOfLine</span>: <span class="string">&quot;crlf&quot;</span>,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>为了避免和 ESLint 冲突，我们还需要通过<code>eslint-config-prettier</code>禁用掉部分 ESLint 规则，修改 ESLint 配置：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// .eslintrc.js</span></span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">    <span class="attr">extends</span>: [</span><br><span class="line">        <span class="string">&#x27;prettier&#x27;</span>, <span class="comment">// 新增这一行</span></span><br><span class="line">    ],</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-3-配置忽略文件-prettierignore"><a href="#3-3-配置忽略文件-prettierignore" class="headerlink" title="3.3 配置忽略文件.prettierignore"></a>3.3 配置忽略文件<code>.prettierignore</code></h3><p>新建.prettierignore</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">node_modules</span><br><span class="line">build</span><br><span class="line">dist</span><br><span class="line">output</span><br><span class="line">.nuxt</span><br><span class="line">.husky</span><br><span class="line"></span><br><span class="line">.eslintrc.js</span><br><span class="line">.prettierrc.js</span><br><span class="line">tsconfig.json</span><br><span class="line">package.json</span><br><span class="line">tsconfig.ts</span><br><span class="line">README.md</span><br><span class="line"></span><br><span class="line">.local</span><br><span class="line">**/*.svg</span><br><span class="line">**/*.sh</span><br><span class="line"></span><br><span class="line">/public/*</span><br><span class="line"></span><br><span class="line"># 如果不希望 prettier 检查代码文件的话</span><br><span class="line">*.ts</span><br><span class="line">*.tsx</span><br><span class="line">*.jsx</span><br><span class="line">*.js</span><br></pre></td></tr></table></figure>
+
+<p>在<code>package.json</code>中的<code>scripts</code>中新增如下命令:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">&quot;scripts&quot;</span>: &#123;</span><br><span class="line">    <span class="string">&quot;prettier&quot;</span>: <span class="string">&quot;prettier --check .&quot;</span>,</span><br><span class="line">    <span class="string">&quot;prettier:fix&quot;</span>: <span class="string">&quot;prettier --write .&quot;</span>,</span><br><span class="line">    <span class="string">&quot;lint&quot;</span>: <span class="string">&quot;npm run eslint &amp;&amp; npm run prettier&quot;</span>,</span><br><span class="line">    <span class="string">&quot;lint:fix&quot;</span>: <span class="string">&quot;npm run eslint:fix &amp;&amp; npm run prettier:fix&quot;</span></span><br><span class="line">  &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>如上，<code>npm run prettier</code>是仅检查，而<code>prettier:fix</code>才是进入修改。<br>同时增加了<code>lint</code>和<code>lint:fix</code>来一次性执行两个工具。</p>
+<h2 id="4-Vue-ESlint-配置"><a href="#4-Vue-ESlint-配置" class="headerlink" title="4. Vue ESlint 配置"></a>4. Vue ESlint 配置</h2><p>安装</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn add -D vue-eslint-parser @vue/eslint-config-typescript</span><br></pre></td></tr></table></figure>
+
+<p>修改.eslintrc.js</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">parser</span>: <span class="string">&#x27;vue-eslint-parser&#x27;</span>,</span><br><span class="line">  <span class="attr">parserOptions</span>: &#123;</span><br><span class="line">    <span class="attr">parser</span>: <span class="string">&#x27;@typescript-eslint/parser&#x27;</span>,</span><br><span class="line">    <span class="attr">ecmaVersion</span>: <span class="string">&#x27;latest&#x27;</span>,</span><br><span class="line">    <span class="attr">sourceType</span>: <span class="string">&#x27;module&#x27;</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="5-Nuxt-ESLint配置"><a href="#5-Nuxt-ESLint配置" class="headerlink" title="5. Nuxt ESLint配置"></a>5. Nuxt ESLint配置</h2><p>安装</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn add  -D @nuxtjs/eslint-config @nuxtjs/eslint-config-typescript</span><br></pre></td></tr></table></figure>
+
+<p>修改.eslintrc.js</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">extends</span>: [</span><br><span class="line">  <span class="string">&#x27;@nuxtjs/eslint-config-typescript&#x27;</span></span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>安装了<code>@nuxtjs/eslint-config-typescript</code>后，该插件规则要求函数名称和调用它的左括号之间有空格，为防止和 ESlint 冲突，最好关闭<code>func-call-spacing</code>规则，即: <code>&#39;func-call-spacing&#39;: &#39;off&#39;</code></p>
+</blockquote>
+<h2 id="6-配置-Husky-与-Lint-Staged"><a href="#6-配置-Husky-与-Lint-Staged" class="headerlink" title="6. 配置 Husky 与 Lint Staged"></a>6. 配置 Husky 与 Lint Staged</h2><p>配置 Husky 与 Lint Staged 让每次提交代码时都自动执行一次格式化，就能确保所有人提交上去的代码风格一致。</p>
+<h3 id="6-1-Husky"><a href="#6-1-Husky" class="headerlink" title="6.1 Husky"></a>6.1 Husky</h3><p>安装</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npx husky-init &amp;&amp; yarn</span><br></pre></td></tr></table></figure>
+
+<p>添加 Git Hooks:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npx husky add .husky/pre-commit &#x27;./node_modules/.bin/lint-staged&#x27;</span><br></pre></td></tr></table></figure>
+
+<p>此时根目录下自动生成<code>.husky</code>目录，其内有一个<code>pre-commit</code>文件，文件内容为:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/env sh</span><br><span class="line">. &quot;$(dirname -- &quot;$0&quot;)/_/husky.sh&quot;</span><br><span class="line"></span><br><span class="line">npm test</span><br><span class="line">./node_modules/.bin/lint-staged</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>根据自己喜好修改<code>npm test</code>，这里修改为<code>yarn lint:fix</code></p>
+</blockquote>
+<p>从上述文件中可以看出，实际上要执行的就是<code>lint-staged</code>这个命令，而 Lint Staged 的作用即是找出添加到暂存区（git add）的文件，然后执行对应的<code>lint</code>，下面将它添加到项目里。</p>
+<h3 id="6-2-lint-staged"><a href="#6-2-lint-staged" class="headerlink" title="6.2 lint-staged"></a>6.2 lint-staged</h3><p>安装</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn add -D lint-staged</span><br></pre></td></tr></table></figure>
+
+<p>在<code>package.json</code>中增加如下配置，实现对暂存区的核心代码文件，先使用 ESLint 格式化，再使用 Prettier 格式化，而对于其他文件，统一使用 Prettier 进行格式化。</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;lint-staged&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;*.&#123;js,jsx,ts,tsx&#125;&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">      <span class="string">&quot;eslint --cache --fix&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="string">&quot;prettier --write --list-different&quot;</span></span><br><span class="line">    <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;*.&#123;json,md,html,css,scss,sass,less,styl&#125;&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">      <span class="string">&quot;prettier --write --list-different&quot;</span></span><br><span class="line">    <span class="punctuation">]</span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>至此，当<code>git commit -m &#39;first commit&#39;</code>时就会对代码进行统一格式化。</p>
+
+                
+                <p class="end">__END__</p>
+            </div>
+            <div class="article-footer">
+                <div class="suffix-box">
+    <div class="suffix-box-left">
+        <img src="/image/sidebar/avatar.jpg" alt="云逸编程">
+    </div>
+    <div class="suffix-box-right">
+        <span class="suffix-box-title">文章作者：</span>云逸编程
+        <br>
+        <span class="suffix-box-title">文章出处：</span><a href="/2023/03/15/nuxt3%E9%A1%B9%E7%9B%AE%E9%85%8D%E7%BD%AE/" target="_blank">nuxt3项目配置</a>
+        <br>
+        <span class="suffix-box-title">作者签名：</span>简单地活着, 肆意又精彩.
+        <br>
+        <span class="suffix-box-title">关于主题：</span><a href="" target="_blank"></a>
+        <br>
+        <span class="suffix-box-title">版权声明：</span>文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" title="BY-NC-SA" target="_blank">BY-NC-SA</a> 许可协议，转载请注明出处
+        <br>
+    </div>
+    <div style="clear: both;"></div>
+</div>
+                
+                    <div class="category">
+                        分类：
+                        
+                            <a href="/categories/Vue/">Vue</a>
+                        
+                    </div>
+                
+                
+                <div class="article-prev-next">
+                    
+                    
+                        <a href="/2023/03/06/promise/" class="next-prefix">» </a> 下一篇：    <a href="/2023/03/06/promise/" title="发布于 2023-03-06 12:00">Promise</a>
+                    
+                </div>
+            </div>
+            
+    <div class="article-comments">
+        
+            <div class="comments-title">
+                评论列表
+            </div>
+        
+        <div class="comments-content"></div>
+    </div>
+
+        </div>
+    
+</div>
+    <div id="footer"></div>
+    <div id="sidebar">
+    <div class="menu-wrap" style="display:none;">
+        
+            <div class="menu-notice">
+                <span class="iconfont icon-notice"></span>
+                <div class="notice">
+                    <span>简单地活着，肆意而又精彩！</span>
+                </div>
+            </div>
+        
+        <nav class="menu">
+            <div class="menu-introduce"> 
+                <div class="introduce-avatar">
+                    <img src="/image/sidebar/avatar.jpg">
+                </div> 
+                <div class="introduce-info"> 
+                    <div class="introduce-user"><span>云逸编程</span></div>
+                </div> 
+            </div> 
+            <div class="menu-list">
+                <ul>
+                    
+                        <li class=""><a href="/" class="" target="_self"><span class="iconfont icon-home-fill"></span>首页</a></li>
+                    
+                        <li class=""><a href="/category" class="" target="_self"><span class="iconfont icon-folder-fill"></span>分类</a></li>
+                    
+                        <li class=""><a href="/archives" class="" target="_self"><span class="iconfont icon-calendar-fill"></span>归档</a></li>
+                    
+                        <li class=""><a href="/donate" class="" target="_self"><span class="iconfont icon-heart-fill"></span>赞赏</a></li>
+                    
+                        <li class=""><a href="/about" class="" target="_self"><span class="iconfont icon-about-fill"></span>关于</a></li>
+                    
+                        <li class=""><a href="/friend" class="" target="_self"><span class="iconfont icon-link"></span>友情链接</a></li>
+                    
+                </ul> 
+            </div> 
+            <div class="menu-link">
+                <div class="box">
+                    <div class="image-box"></div>
+                </div>
+                
+                    <a name="知乎" href="https://www.zhihu.com/people/jkfan-40" class="" target="_blank" data=""><span class="iconfont icon-zhihu"></span></a>
+                
+                    <a name="QQ" href="javascript:;" class="image" target="_self" data="/image/sidebar/qq.png"><span class="iconfont icon-qq"></span></a>
+                
+                    <a name="GitHub" href="https://github.com/flynn" class="" target="_blank" data=""><span class="iconfont icon-github"></span></a>
+                
+            </div> 
+        </nav>
+        <button class="menu-button-close"></button>
+        <div class="morph-shape" id="morph-shape" data-morph-open="M-7.312,0H15c0,0,66,113.339,66,399.5C81,664.006,15,800,15,800H-7.312V0z;M-7.312,0H100c0,0,0,113.839,0,400c0,264.506,0,400,0,400H-7.312V0z">
+            <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 100 800" preserveAspectRatio="none">
+                <path d="M-7.312,0H0c0,0,0,113.839,0,400c0,264.506,0,400,0,400h-7.312V0z"/>
+            </svg>
+        </div>
+    </div>
+    <button class="menu-button-open">MENU</button>
+    <div class="menu-cover"></div>
+</div>
+    <link type="text/css" rel="stylesheet" href="/css/search.css">
+<script type="text/javascript" src="/js/iscroll.js"></script>
+<script type="text/javascript" src="/js/instantsearch.min.js"></script>
+<div class="search-window">
+    <div class="search-content">
+        <div class="search-content-icon">
+            <i class="iconfont icon-search"></i>
+        </div>
+        <div id="search-input" class="search-input"></div>
+    </div>
+
+    <div class="search-scroll">
+        <div class="search-result">
+            <div id="search-stats" class="search-stats"></div>
+            <div id="search-hits"></div>
+            <div id="search-pagination" class="search-pagination"></div>
+        </div>
+    </div>
+
+    <span class="search-close-icon">
+        <i class="iconfont icon-close"></i>
+    </span>
+</div>
+    <div id="tools">
+    <div class="progressbar-top"></div>
+
+    
+        <link type="text/css" rel="stylesheet" href="/css/APlayer.css">
+        <script type="text/javascript" src="/js/APlayer.min.js"></script>
+        <script type="text/javascript" src="/js/Meting.min.js"></script>
+        <meting-js id="3778678" lrcshow="false" server="netease" type="playlist" fixed="true" autoplay="false" loop="all" order="random" preload="auto" volume="0.67" mutex="true"></meting-js>
+    
+    
+    <div class="wrap-right">
+        <div class="setting">
+            <div class="iconbox favorites" switch="false">
+                <span class="iconfont icon-favorites"></span>
+                <span class="icontext">关注</span>
+            </div>
+            <div class="iconbox mode">
+                <div class="light">
+                    <span class="iconfont icon-daymode"></span>
+                    <span class="icontext">浅色模式</span>
+                </div>
+                <div class="dark">
+                    <span class="iconfont icon-nightmode-fill"></span>
+                    <span class="icontext">深色模式</span>
+                </div>
+            </div>
+            <a href="javascript:;" target="_self" class="search">
+                <div class="iconbox">
+                    <span class="iconfont icon-search-menu"></span>
+                    <span class="icontext">搜索</span>
+                </div>
+            </a>
+            <div class="iconbox bottom">
+                <div style="display: inline-block; transform: rotate(180deg);">
+                    <span class="iconfont icon-top"></span>
+                </div>
+                <span class="icontext">跳至底部</span>
+            </div>
+        </div>
+        <div class="iconbox set">
+            <div style="display: inline-block;">
+                <span class="iconfont icon-setting"></span>
+            </div>
+            <span class="icontext">设置</span>
+        </div>
+        <div class="iconbox top">
+            <span class="iconfont icon-top"></span>
+            <span class="icontext">返回顶部</span>
+        </div>
+    </div>
+    <div class="loading"></div>
+</div>
+    <script>
+    window.config = {
+        GitHubUserName     : "flynn",
+        GitHubRepositories : "Hexo-LiveForCode",
+
+        User             : "云逸编程",
+        UserAvatar       : "/image/sidebar/avatar.jpg",
+        WebsiteStartDate : "2020-01-01",
+
+        WebsiteTitleBlur         : "(◍´꒳`◍) Hi, 云逸编程",
+        WebsiteTitleBlurTimeOut  : 500,
+        WebsiteTitleFocus        : "(*´∇｀*) 欢迎回来!",
+        WebsiteTitleFocusTimeOut : 1000,
+        WebsiteFavicon           : "/image/website/logo.png",
+
+        ProgressBar : {
+            id       : "topProgressBar",
+            color    : "#77B6FF",
+            height   : "2px",
+            duration : 0.2
+        },
+
+        Loading: {
+            rebound : {
+                tension  : 16,
+                friction : 5
+            },
+            spinner : {
+                id     : "spinner",
+                radius : 90,
+                sides  : 3,
+                depth  : 4,
+                colors : {
+                    background : "#F0F0F0",
+                    stroke     : "#272633",
+                    base       : "",
+                    child      : "#272633"
+                },
+                alwaysForward : true,
+                restAt        : 0.5,
+                renderBase    : false
+            }
+        },
+
+        HomeHeaderAnimationRendered : true,
+        HomeHeaderAnimation         : {
+            radius      : 15,
+            density     : 0.2,
+            color       : "rgba(255, 255, 255, .2)",
+            clearOffset : 0.3
+        },
+
+        BackAnimationRendered          : true,
+        IEBrowserBackAnimationRendered : false,
+        BackAnimation                  : {
+            colorSaturation  : "60%",
+            colorBrightness  : "50%",
+            colorAlpha       : 0.5,
+            colorCycleSpeed  : 5,
+            verticalPosition : "random",
+            horizontalSpeed  : 200,
+            ribbonCount      : 3,
+            strokeSize       : 0,
+            parallaxAmount   : -0.2,
+            animateSections  : true
+        },
+
+        HomeHeaderImage : [
+            
+                "/image/header/home.jpg",
+            
+                "/image/header/home.jpeg",
+            
+        ],
+        HomeBannerText  : "",
+
+        ArticleHeaderImage : [
+            
+                "/image/header/article.jpg",
+            
+        ],
+
+        OtherBannerText : "",
+
+        Error : {
+            icon    : "icon-swimming",
+            title   : "PAGE NOT FOUND",
+            content : [
+                
+                    "很抱歉，您访问的页面不存在！",
+                
+                    "可能是输入地址有误或该地址已变更。",
+                
+            ],
+            buttons : [
+                
+                    {
+                        icon  : "icon-home",
+                        text  : "返回首页",
+                        href  : "/",
+                        class : ""
+                    },
+                
+            ]
+        },
+
+        MenuNotice : {
+            enable : true,
+            notice : "简单地活着，肆意而又精彩！",
+            speed  : 20
+        },
+        MenuList : [
+            
+                {
+                    name   : "首页",
+                    icon   : "icon-home-fill",
+                    href   : "/",
+                    type   : "index",
+                    class  : "",
+                    target : "_self"
+                },
+            
+                {
+                    name   : "分类",
+                    icon   : "icon-folder-fill",
+                    href   : "/category",
+                    type   : "category",
+                    class  : "",
+                    target : "_self"
+                },
+            
+                {
+                    name   : "归档",
+                    icon   : "icon-calendar-fill",
+                    href   : "/archives",
+                    type   : "archive",
+                    class  : "",
+                    target : "_self"
+                },
+            
+                {
+                    name   : "赞赏",
+                    icon   : "icon-heart-fill",
+                    href   : "/donate",
+                    type   : "donate",
+                    class  : "",
+                    target : "_self"
+                },
+            
+                {
+                    name   : "关于",
+                    icon   : "icon-about-fill",
+                    href   : "/about",
+                    type   : "about",
+                    class  : "",
+                    target : "_self"
+                },
+            
+                {
+                    name   : "友情链接",
+                    icon   : "icon-link",
+                    href   : "/friend",
+                    type   : "friend",
+                    class  : "",
+                    target : "_self"
+                },
+            
+        ],
+        MenuLink : [
+            
+                
+                    {
+                        name   : "知乎",
+                        icon   : "icon-zhihu",
+                        href   : "https://www.zhihu.com/people/jkfan-40",
+                        class  : "",
+                        target : "_blank",
+                        image  : ""
+                    },
+                
+                    {
+                        name   : "QQ",
+                        icon   : "icon-qq",
+                        href   : "javascript:;",
+                        class  : "image",
+                        target : "_self",
+                        image  : "/image/sidebar/qq.png"
+                    },
+                
+                    {
+                        name   : "GitHub",
+                        icon   : "icon-github",
+                        href   : "https://github.com/flynn",
+                        class  : "",
+                        target : "_blank",
+                        image  : ""
+                    },
+                
+            
+        ],
+
+        FooterStyle : 2,
+        BottomText  : "<div><span class='face'>ღゝ◡╹)ノ♡</span></div><div>【人生若只如初见<span><i class='iconfont icon-like-fill'></i></span>何事秋风悲画扇】</div><div>&copy; 2020-2023 mason van. All Rights Reserved.冀ICP备17017566号</div>",
+
+        ConsoleList : [
+            
+                
+                    [
+                        
+                            
+                                "Based on cnblogs theme SimpleMemory.",
+                            
+                                "",
+                            
+                        
+                    ],
+                
+                    [
+                        
+                            
+                                "SimpleMemory Author:",
+                            
+                                "BNDong",
+                            
+                        
+                    ],
+                
+                    [
+                        
+                            
+                                "Theme:",
+                            
+                                "LiveForCode",
+                            
+                        
+                    ],
+                
+            
+        ],
+
+        FontIconExtend : "",
+
+        Donate : {
+            alipay  : "/image/donate/alipay.png",
+            wechat  : "/image/donate/wechat.png"
+        },
+
+        Search : {
+            applicationID : "010C3EANT8",
+            apiKey        : "c7abab9f11b79102b9aff7fe6d41447d",
+            indexName     : "Notes",
+            hits          : {
+                page : 10
+            },
+            labels        : {
+                placeholder : "搜索",
+                empty       : "未发现与 「${query}」 相关的内容",
+                stats       : "${hits} 条相关条目，使用了 ${time} 毫秒",
+            }
+        }, 
+
+        Valine : {
+            switch         : true,
+            el             : ".comments-content",
+            appId          : "srhKtvWPQTWYKh3qX8G8M7v0-gzGzoHsz",
+            appKey         : "8uVSP1q6UlALVC5igYfIfv2h",
+            serverURLs     : "",
+            placeholder    : "你是我一生只会遇见一次的惊喜...",
+            avatar         : "mm",
+            meta           : "nick,mail,link",
+            requiredFields : "nick,mail",
+            pageSize       : 5,
+            lang           : "zh-cn",
+            visitor        : true,
+            enableQQ       : true
+        },
+
+        Tocbot : {
+            switch                : true,
+            tocSelector           : ".toc",
+            contentSelector       : ".article-body",
+            headingSelector       : "h1, h2, h3, h4, h5",
+            headingsOffset        : 0,
+            scrollSmooth          : true,
+            scrollSmoothOffset    : -5,
+            positionFixedSelector : ".toc",
+            positionFixedClass    : "toc-fixed",
+            fixedSidebarOffset    : "",
+        },
+
+        Require : {
+            baseUrl     : "/js/",
+            waitSeconds : 100
+        },
+
+        Music : {
+            type : "Meting"
+        },
+        APlayer : {
+            container : ".aplayer",
+            fixed     : true,
+            autoplay  : false,
+            loop      : "all",
+            order     : "random",
+            preload   : "auto",
+            volume    : 0.67,
+            mutex     : true,
+            lrcType   : 3,
+            audio     : [
+                
+                    {
+                        name   : "Endless Tears",
+                        artist : "CLIFF EDGE",
+                        cover  : "/music/cover/Endless Tears.jpg",
+                        url    : "/music/song/Endless Tears.mp3",
+                        lrc    : "/music/lrc/Endless Tears.lrc"
+                    },
+                
+            ]
+        },
+        Meting : {
+            id       : "3778678", 
+            lrcshow  : false, 
+            server   : "netease", 
+            type     : "playlist", 
+            fixed    : true, 
+            autoplay : false, 
+            loop     : "all", 
+            order    : "random", 
+            preload  : "auto", 
+            volume   : 0.67, 
+            mutex    : true
+        },
+
+        Mouse : {
+            enable  : true,
+            options : {
+                size  : 6,
+                sizeF : 24
+            }
+        },
+
+        LazyLoad : {
+            default : "/image/website/lazyload.svg"
+        },
+  
+        Style : {
+            aplayer          : "/css/APlayer.css",
+            archive          : "/css/archive.css",
+            base             : "/css/base.css",
+            clipboard        : "/css/clipboard.css",
+            code             : "/css/code.css",
+            donate           : "/css/donate.css",
+            fancybox         : "/css/jquery.fancybox.css",
+            footer           : "/css/footer.css",
+            iconfont         : "/iconfont/iconfont.css",
+            index            : "/css/index.css",
+            menuBubble       : "/css/menu-bubble.css",
+            mouse            : "/css/mouse.css",
+            page             : "/css/page.css",
+            post             : "/css/post.css",
+            search           : "/css/search.css",
+            tocbot           : "/css/tocbot.css",
+            valine           : "/css/valine.css"
+        },
+
+        Script: {
+            aplayer          : "/js/APlayer.min.js",
+            config           : "/js/require.config.js",
+            index            : "/js/index.js",
+            instantSearch    : "/js/instantsearch.min.js",
+            iscroll          : "/js/iscroll.js",
+            jQuery           : "/js/jquery-3.4.1.min.js",
+            loading          : "/js/loading.js",
+            meting           : "/js/Meting.min.js",
+            require          : "/js/require.min.js"
+        },
+
+        Font: {
+            LongCang    : "/font/LongCang.css",
+            Monda       : "/font/Monda.css",
+            NotoSansSC  : "/font/NotoSansSC.css",
+            NotoSerifSC : "/font/NotoSerifSC.css",
+            Playball    : "/font/Playball.css",
+            PTMono      : "/font/PTMono.css",
+            Roboto      : "/font/Roboto.css",
+            RobotoSlab  : "/font/RobotoSlab.css",
+            Rosario     : "/font/Rosario.css",
+            UbuntuMono  : "/font/UbuntuMono.css"
+        },
+
+        Suffix : {
+            about : "简单地活着, 肆意又精彩."
+        },
+            
+        Theme : {
+            url  : "",
+            name : ""
+        }  
+    };
+</script>
+    <script type="text/javascript" src="/js/index.js"></script>
+</body>
+</html>
